@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>gz_misil_plugin</name>
+  <version>1.0.0</version>
+  <description>Plugin para el control de un misil muy simple en Gazebo Garden</description>
+  <maintainer email="migtejgar@alum.us.es">Miguel Tejado García</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>rclcpp</depend>
+  <depend>gz-sim7</depend>
+  <depend>gz-plugin2</depend>
+  <depend>gz-common5</depend>
+  <depend>gz-math7</depend>
+  <depend>gz-transport12</depend>
+  <depend>gz-physics7</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <!-- <depend>gz_uwb_beacon_msgs</depend> -->
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>Eigen3</depend>
+  <depend>px4_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <gz_sim gazebo_media_path="${prefix}" plugin_path="${prefix}/lib"/>
+  </export>
+</package>

@@ -14,12 +14,11 @@ find_package(gz-plugin2 REQUIRED)
 find_package(gz-common5 REQUIRED)
 find_package(gz-math7 REQUIRED)
 find_package(gz-transport12 REQUIRED)
-find_package(gz-physics7   REQUIRED)
+find_package(gz-physics7 REQUIRED)
 find_package(ros_gz_bridge REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
-# find_package(gz_uwb_beacon_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
@@ -43,11 +42,9 @@ ament_target_dependencies(${PROJECT_NAME}
   gz-math7
   gz-transport12
   gz-physics7
-  ros_gz_bridge
   std_msgs
   geometry_msgs
   visualization_msgs
-  # gz_uwb_beacon_msgs
   tf2
   tf2_ros
   tf2_geometry_msgs
@@ -81,11 +78,9 @@ ament_export_dependencies(
   gz-math7
   gz-transport12
   gz-physics7
-  ros_gz_bridge
   std_msgs
   geometry_msgs
   visualization_msgs
-  # gz_uwb_beacon_msgs
   tf2
   tf2_ros
   tf2_geometry_msgs

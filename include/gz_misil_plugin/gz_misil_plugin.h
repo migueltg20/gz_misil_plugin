@@ -16,6 +16,7 @@
 // Sim
 #include <gz/sim/System.hh>
 #include <gz/sim/Model.hh>
+#include <gz/sim/Link.hh>
 #include <gz/sim/components/World.hh>
 #include <gz/sim/components/Name.hh>
 #include <gz/sim/components/Link.hh>
@@ -26,7 +27,6 @@
 #include <gz/sim/components/Collision.hh>
 #include <gz/sim/components/Geometry.hh>
 #include <gz/sim/Util.hh>
-#include <gz/sim/components/WorldLinearVelocity.hh>
 // Common
 #include <gz/common/Profiler.hh>
 // Math
@@ -61,12 +61,11 @@ namespace gz
     public: 
         struct Misil
         {
-            sim::components::Pose pose;
-            sim::components::LinearVelocity velocity;
+            gz::math::Pose3d pose;
+            gz::math::Vector3d velocity;
             std::string model_name;
             gz::sim::Link missileLink;
-            Misil() : pose(), velocity(), model_name(), missileLink(gz::sim::Link()) {}
-            ~Misil() {}
+            Misil() : pose(), velocity(), model_name(), missileLink() {}
         };
 
     public: // Parámetros

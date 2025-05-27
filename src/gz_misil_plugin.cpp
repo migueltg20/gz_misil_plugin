@@ -57,7 +57,9 @@ namespace gz
 			misil_.model_name = name_comp->Data();
 		}
 
-		misil_.missileLink = gz::sim::Link(model_entity_.LinkByName(_ecm, "base_link"));
+		// initialize missile link
+		auto linkEnt = gz::sim::Model(model_entity_).LinkByName(_ecm, "base_link");
+		misil_.missileLink = gz::sim::Link(linkEnt);
 		if (!misil_.missileLink.Valid(_ecm)) {
 			RCLCPP_FATAL(node_->get_logger(), "Misil-Plugin: base_link not found!");
 			return;
@@ -159,9 +161,9 @@ namespace gz
 		gz::math::Vector3d direction = gz::math::Vector3d(dx, dy, dz);
 		direction.Normalize();
 
-		double ax = (desired_twist.linear.x - misil_.velocity.Linear().X()) / dt;
-		double ay = (desired_twist.linear.y - misil_.velocity.Linear().Y()) / dt;
-		double az = (desired_twist.linear.z - misil_.velocity.Linear().Z()) / dt;
+		double ax = (desired_twist.linear.x - misil_.velocity.X()) / dt;
+		double ay = (desired_twist.linear.y - misil_.velocity.Y()) / dt;
+		double az = (desired_twist.linear.z - misil_.velocity.Z()) / dt;
 
 		double Fx = ax * 13.0; // Masa del misil (13 kg)
 		double Fy = ay * 13.0; 
@@ -209,6 +211,8 @@ namespace gz
 		GzMisilPlugin::ISystemPreUpdate,
 		GzMisilPlugin::ISystemReset
 	)
+
+	// GZ_ADD_PLUGIN_ALIAS(gz::GzMisilPlugin, "gz_misil_plugin");
 
 } // namespace gz
 
